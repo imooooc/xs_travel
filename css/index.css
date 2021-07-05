@@ -1,0 +1,174 @@
+
+/* 固定header三层的高度和颜色 */
+.login{
+    height: 32px;
+    position: relative;
+}
+nav.nav{
+    height: 40px;
+}
+.logo{
+    height: 78px;
+}
+.bgb{
+    background-color: #2A2A2A;
+}
+.bgg{
+    background-color: #20BD9A ;
+}
+/* ---------------- */
+/* logo部分 */
+
+.bgb .login ul{
+    position: absolute;
+    left:0;
+    top:50%;
+    margin-top: -9px;
+
+}
+.bgb .login ul li {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    font: normal 12px/1.5 Aria,"宋体";
+}
+.bgb .login ul li.have-menu {
+    padding-right:20px;
+}
+.bgb ul li.have-menu em.arrow{
+    position: absolute;
+    width:10px;
+    height: 10px;
+    background-color:#2A2A2A;
+    /* background-color:red; */
+    /* 微调箭头的整体位置 */
+    top: 4px;
+    right: 7px;
+}
+.bgb ul li.have-menu:hover em.arrow{
+    transform: rotate(180deg);
+    transition:transform .5s linear 0s ;
+}
+.bgb ul li.have-menu em.arrow i, .bgb ul li.have-menu em.arrow b{
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    margin-left:-3px;
+    top:25%;
+    transform:rotate(45deg);
+}
+.bgb ul li.have-menu em.arrow i{
+    background-color: #2A2A2A;
+    /* background-color: transparent; */
+    /* 向上微调压盖的盒子出现箭头 */
+    top:-30%;
+    left: 50%;
+}
+.bgb ul li.have-menu em.arrow b{
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    left:50%;
+    top: 50%;
+    margin-left: -2px;
+    margin-top:-4px;
+}
+.bgb  div.login .right{
+    position:absolute;
+    height: 18px;
+    top:50%;
+    margin-top: -9px;
+    right: 0;
+}
+
+.bgb div.login .right div{
+    float:left;
+    margin-right: 10px;
+}
+div.login .right div:last-child{
+    margin-right: 0;
+}
+/* --------导航栏--------------- */
+.bgg .nav ul{
+    float: left;
+    height:40px;
+}
+.bgg .nav ul li{
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    font-size: 16px;
+    margin-top: 8px;
+}
+.bgg .nav ul li.have-menu{
+    padding-right: 20px;
+    position: relative;
+}
+.bgg ul li.have-menu em.arrow{
+    background-color: #20BD9A;
+    /* background-color: red; */
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top:50%;
+    /* 微调位置 */
+    margin-top: -6.5px;
+    right:0;
+    transform: rotate(0);
+    /* position: absolute; */
+}
+.bgg ul li.have-menu:hover em.arrow{
+    transform: rotate(180deg);
+    transition: transform .3s linear 0s ;
+}
+.bgg ul li.have-menu em.arrow i, .bgg ul li.have-menu em.arrow b{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: white;
+    top:-5px;
+    left: 2.4px;
+    transform: rotate(45deg);
+}
+.bgg ul li.have-menu em.arrow b{
+    /* background-color: #fff; */
+    background:white;
+    top:-2px;
+}
+.bgg ul li.have-menu em.arrow i{
+    background-color: #20BD9A;
+
+}
+
+/* ------logo------- */
+div.logo{
+    height: 36px;
+    padding:21px 0;
+}
+div.logo .title{
+    float: left;
+    width: 150px;
+    height: 36px;
+    font: bold 24px/36px PingFangSC-Medium;
+    color: #20BD9A;
+
+
+    
+}
+div.logo input{
+    float: left;
+    width: 405px;
+    height: 20px;
+    margin-top:5px;
+    outline: none;
+}
+div.logo input{
+    width: 20px;
+    height: 20px;
+    display: block;
+    border: 1px solid #000;
+    background-color: #20BD9A;
+    content: '';
+}

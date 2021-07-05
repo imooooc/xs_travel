@@ -1,0 +1,31 @@
+.clearfix{
+    overflow:hidden;
+}
+.clearfix::after{
+    display: block;
+    content: '';
+    clear:both;
+    overflow: hidden;
+}
+.tac{
+    text-align: center;
+}
+.center-wrap{
+     width: 1146px;
+    margin:0 auto;
+}
+.db{
+    display: block;
+}
+.dib{
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    font: normal 12px/1.5  Aria,"宋体";
+    color:white;
+}
