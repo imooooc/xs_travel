@@ -19,23 +19,24 @@ nav.nav{
 /* ---------------- */
 /* logo部分 */
 
-.bgb .login ul{
+.bgb .login > ul{
     position: absolute;
     left:0;
     top:50%;
     margin-top: -9px;
 
 }
-.bgb .login ul li {
+.bgb .login > ul li {
     float: left;
     margin-right: 10px;
     position: relative;
     font: normal 12px/1.5 Aria,"宋体";
 }
-.bgb .login ul li.have-menu {
+.bgb .login > ul li.have-menu {
     padding-right:20px;
+    position: relative;
 }
-.bgb ul li.have-menu em.arrow{
+.bgb .login > ul li.have-menu em.arrow{
     position: absolute;
     width:10px;
     height: 10px;
@@ -45,11 +46,11 @@ nav.nav{
     top: 4px;
     right: 7px;
 }
-.bgb ul li.have-menu:hover em.arrow{
+.bgb .login > ul li.have-menu:hover em.arrow{
     transform: rotate(180deg);
     transition:transform .5s linear 0s ;
 }
-.bgb ul li.have-menu em.arrow i, .bgb ul li.have-menu em.arrow b{
+.bgb .login > ul  li.have-menu em.arrow i, .bgb ul li.have-menu em.arrow b{
     display: block;
     position: absolute;
     width: 6px;
@@ -59,14 +60,14 @@ nav.nav{
     top:25%;
     transform:rotate(45deg);
 }
-.bgb ul li.have-menu em.arrow i{
+.bgb  .login > ul  li.have-menu em.arrow i{
     background-color: #2A2A2A;
     /* background-color: transparent; */
     /* 向上微调压盖的盒子出现箭头 */
     top:-30%;
     left: 50%;
 }
-.bgb ul li.have-menu em.arrow b{
+.bgb  .login > ul  li.have-menu em.arrow b{
     width: 4px;
     height: 4px;
     background-color: white;
@@ -75,6 +76,31 @@ nav.nav{
     margin-left: -2px;
     margin-top:-4px;
 }
+.bgb  .login > ul  li.have-menu div.menu{
+    position: absolute;
+    width: 100px;
+    background-color: #20BD9A;
+    opacity: .9;
+    z-index: 999;
+    box-shadow: 10px 10px 10px grey;
+    display: none;
+}
+
+.bgb  .login > ul  li.have-menu:hover div.menu{
+    display: block;
+}
+.bgb  .login > ul  li.have-menu div.menu ul.menu-list li{
+    margin:0 0 5px 5px;
+    clear: both;
+}
+.bgb  .login > ul  li.have-menu div.menu ul.menu-list li a{
+    color:white;
+}
+.bgb  .login > ul  li.have-menu div.menu ul.menu-list li a:hover{
+    color:rgb(140, 0, 255);
+}
+
+
 .bgb  div.login .right{
     position:absolute;
     height: 18px;
@@ -86,10 +112,21 @@ nav.nav{
 .bgb div.login .right div{
     float:left;
     margin-right: 10px;
+    /* background-color: red; */
 }
-div.login .right div:last-child{
+.bgb div.login .right div:last-child{
     margin-right: 0;
 }
+.bgb div.login .right div.iconfont{
+    font-size:15px;
+}
+.bgb div.login .right span{
+    float: left;
+    font-size:16px;
+    margin-right: 10px;
+}
+
+
 /* --------导航栏--------------- */
 .bgg .nav ul{
     float: left;
@@ -142,6 +179,35 @@ div.login .right div:last-child{
 
 }
 
+.bgg ul li.have-menu div.menu {
+    position: absolute;
+    width: 130px;
+    background-color: #20BD9A;
+    opacity: .9;
+    z-index: 999;
+    box-shadow: 10px 10px 10px grey;
+    display: none;
+}
+
+.bgg ul li.have-menu:hover div.menu{
+    display: block;
+    padding:10px;
+}
+
+.bgg ul li.have-menu div.menu dl dt{
+    color:black;
+    font-size:14px;
+    font-family: PingFangSC-Semibold;
+}
+.bgg ul li.have-menu div.menu dl dd a{
+    /* display: block; */
+    font-family:PingFangSC-Semibold;
+    font-size: 12px;
+}
+.bgg ul li.have-menu div.menu dl dd a:hover{
+    color:rgb(140, 0, 255);
+}
+
 /* ------logo------- */
 div.logo{
     height: 36px;
@@ -153,22 +219,33 @@ div.logo .title{
     height: 36px;
     font: bold 24px/36px PingFangSC-Medium;
     color: #20BD9A;
-
-
-    
 }
-div.logo input{
+
+div.logo  div.search {
     float: left;
     width: 405px;
-    height: 20px;
-    margin-top:5px;
-    outline: none;
+    height: 28px;
+    position: relative;
+    margin-top: 3px;
 }
-div.logo input{
-    width: 20px;
-    height: 20px;
+div.logo div.search input{
+    width: 373px;
+    height: 28px;
+    padding: 0;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #20BD9A;
+}
+div.logo div.search .btn{
+    position: absolute;
+    width: 32px;
+    height: 30px;
     display: block;
-    border: 1px solid #000;
     background-color: #20BD9A;
-    content: '';
+    right: 0;
+    top: 0;
+    border-radius: 0 4px 4px 0;
+    text-align: center;
+    font-size:18px;
+    line-height: 30px;
 }
+
