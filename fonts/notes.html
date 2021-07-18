@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notes</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -250px;
+            padding: 20px;
+            background-color: beige;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oIpt = document.getElementById('ipt');
+            var oBtn = document.getElementById('btn');
+            var oList =document.getElementById('list');
+
+            oBtn.onclick = function(){
+                var text = oIpt.value;
+                oIpt.value = '';
+                if(text){
+                     // 创建孤儿节点
+                    var oLi = document.createElement('li');
+                    oLi.innerText = text;
+                    // 上树
+                    oList.appendChild(oLi);
+                }
+            }
+            oList.onclick = function(e){
+                this.removeChild(e.target);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <form action="">
+            <input type="text" placeholder="todo" id = 'ipt'>
+            <input type="button" value='add' id = 'btn'>
+        </form>
+            <ul id='list'>
+                <li>吃饭</li>
+                <li>睡觉</li>
+                <li>打豆豆</li>
+            </ul>
+    </div>
+
+</body>
+</html>
