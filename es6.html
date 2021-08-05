@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id='lang'>
+        <li id='1'>HTML</li>
+        <li id='2'>CSS</li>
+        <li id='3'>JavaScript</li>
+        <li id='4'>jquery</li>
+        <li id='5'>HTML5</li>
+        <li id='6'>CSS3</li>
+        <li id='7'>ES6</li>
+    </ul>
+    <script type="text/javascript">
+        // var li = document.getElementById('3');
+        // li.addEventListener('mouseenter', function(e){e.target.style.color = 'red'; },true);
+        // li.addEventListener('mouseleave', function(e){e.target.style.color = 'black'; },true);
+        var ul = document.getElementById('lang');
+        ul.addEventListener('mouseover', function(e){
+            e.target.style.color = 'red';
+        },true);
+        ul.addEventListener('mouseout', function(e){
+            e.target.style.color = 'black';
+        },true);
+    </script>
+</body>
+
+</html>
