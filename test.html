@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>计算器</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
 
 <body>
-   <script>
-       var input = prompt('input');
+    <script type="text/javascript">
+        //补充代码
+        let node = {
+            type: 'Identifier',
+            name: 'ES',
+            loc: {
+                start: ['line', 'column'],
+                end: {
+                    line: 1,
+                    column: 4
+                }
+            }
+        };
 
-           if(isNaN(input)){
-               alert('1');
-           }else{
-               alert('2');
-           }
-       
-   </script>
+      (  { loc: {start: [a,], end: {line}} , } = node);
+        console.log(a,line);
+    </script>
 </body>
 
 </html>

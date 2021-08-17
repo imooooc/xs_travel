@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        *{
+            margin:0;
+           padding:0;
+        }
+
+        .box{
+             background-color: white;
+             margin:10px auto;
+             width:500px;
+
+             
+        }
+
+        .box1{
+            height: 50px;
+            margin-bottom: 10px;
+
+        }
+        .box2{
+            height: 200px;
+             margin-bottom: 10px;
+
+        }
+        .box3{
+            height: 50px;
+            background-color: yellow;
+        }
+        .logo{
+            float:left;
+            margin:5px;
+            width: 50px;
+            height:30px;
+            background-color: paleturquoise;
+        }
+        .right{
+            width:50%;
+            height:50px;
+            float: right;
+
+        }
+        .desc{
+            float: right;
+            width: 50px;
+            height: 20px;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+        nav{
+            float:right;
+            width: 201px;
+            height:20px;
+            background-color:grey;
+        }
+        aside{
+            float: left;
+            width:100px;
+            height: 200px;
+            background-color: red;
+            
+        }
+        main{
+            float:right;
+            width:75%;
+            height:200px;
+            /* background-color:lightgreen; */
+        }
+        .part1{
+            height:150px;
+            margin-bottom: 15px;
+            background-color: teal;
+        }
+        .part2{
+            height: 35px;
+            /* background-color: rgb(168, 32, 32); */
+        }
+        .part2 .item{
+            margin-right: 27px;
+            float:left;
+            width: 40px;
+            height: 35px;
+            background-color: thistle;
+        }
+        .part2 .item:last-child{
+            margin-right: 0;
+            width:40px;
+            float:right;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+    <header class="box1" >
+        <div class="logo"></div>
+        <div class="right">
+            <div class="desc"></div>
+            <nav></nav>
+        </div>       
+    </header>
+    <div class="box2">
+        <aside></aside>
+        <main>
+            <div class="part1">
+            </div>
+            <div class="part2">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>                
+                <div class="item"></div>                
+
+            </div>
+        </main>
+    </div>
+    <footer class="box3"></footer>
+    </div>
+</body>
+</html>

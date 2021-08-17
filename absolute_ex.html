@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            position:absolute;
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            top:50%;
+            margin-top:-50px;
+            left:50%;
+            margin-left:-100px;
+        }
+        ol{
+            width: 50px;
+            height: 10px;
+
+            position:absolute;
+            right:5px;
+            bottom:5px;
+        }
+        ol li{
+            float:left;
+            list-style: none;
+            background-color:darkgoldenrod;
+            width:10px;
+            height:10px;
+            margin-right:2px;
+            border-radius: 50%;
+        }
+        ol li.current{
+            background-color: red;
+        }
+        .btn{
+            /* display: inline-block; */
+            width: 10px;
+            height: 10px;
+            position:absolute;
+            background-color: rgba(169, 169, 169, 0.507);
+            color:darkorchid;
+            top:50%;
+            margin-top:-5px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            background-color: darkorange;
+        }
+        .leftbtn{
+            left:5px;
+        }
+        .rightbtn{
+            right:5px;
+        }
+        a{
+            font: 10px/1 Arial;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a class="leftbtn btn">&lt;</a>
+        <a class="rightbtn btn">&gt;</a>
+        <ol>
+            <li></li>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    
+</body>
+</html>

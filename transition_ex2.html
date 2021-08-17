@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div.box{
+            width:300px;
+            height: 200px;
+            border: 1px solid #000;
+            margin:300px auto;
+            position: relative;
+            /* 超出父容器就隐藏 */
+            overflow: hidden;
+        }
+        div.box:hover div.room{
+            bottom: 0;
+           opacity: 1;
+           transition:all .5s ease-out 0s;
+        }
+        img{
+            width:300px;
+        }
+        div.room{
+            position: absolute;
+            bottom:-22px;
+            width: 300px;
+            line-height: 22px;
+            background-color: rgba(128, 128, 128, 0.466);
+            color:white;
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="../images/03-04.jpg" alt="">
+        <div class="room">这是一个小房间</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        section{
+            width:200px;
+            height: 200px;
+            margin: 100px auto;
+        }
+        @keyframes r {
+            0%{
+                transform: translate(0,0) rotate3d(0,0,0,0deg);
+            }
+            100%{
+                transform: translate(0,0) rotate3d(1,1,1,360deg);
+            }
+        }
+        div {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* border: 2px solid black; */
+            perspective: 10000px;
+            transform-style: preserve-3d;
+            animation:r 3s linear 0s infinite ;
+        }
+        /* div:hover{
+            transform: rotateX(90deg);
+            transition: transform 3s linear 0s;
+        } */
+
+        p {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+
+        p:nth-child(1) {
+            background-color: orange;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        p:nth-child(2) {
+            background-color: rgba(255, 0, 128, 0.452);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        p:nth-child(3) {
+            background-color: rgba(0, 255, 242, 0.452);
+            transform: translateZ(100px);
+        }
+
+        p:nth-child(4) {
+            background-color: rgba(43, 255, 0, 0.452);
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        p:nth-child(5) {
+            background-color: rgba(0, 234, 255, 0.452);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        p:nth-child(6) {
+            background-color: rgba(162, 0, 255, 0.452);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <p>你</p>
+            <p>是</p>
+            <p>大</p>
+            <p>聪</p>
+            <p>明</p>
+            <p>！</p>
+        </div>
+    </section>
+</body>
+
+</html>

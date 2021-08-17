@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            margin: 20px 0;
+            line-height: 30px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <div id="box"></div>
+    <script>
+        const startBtn = document.getElementById('start')
+        const stopBtn = document.getElementById('stop')
+        const box = document.getElementById('box')
+        // 方法一
+        // var show = {
+        //     content: "Hello World",
+        //     timer: null,
+        //     start: function () {
+        //         // 在此补充代码
+        //         // console.log(this);//show
+        //         var that = this;
+        //         startBtn.addEventListener(
+        //             'click',
+        //             function () {
+        //                 // console.log(this);//startBtn
+        //                 setInterval(function(){
+        //                     that.content += 'Hello,World!';
+        //                     box.innerText = that.content;
+        //                 }, 1000);
+                        
+        //             },
+        //             false);
+
+        //     },
+        //     stop: function () {
+        //         // 在此补充代码
+        //     },
+        // }
+        // // 在此补充代码
+        // show.start();
+
+        // 方法二
+        var show = {
+            content: "Hello World",
+            timer: null,
+            start: function () {
+                // 在此补充代码
+                startBtn.addEventListener(
+                    'click',
+                    () => {
+                        // console.log(this);//show
+                        this.timer = setInterval(() => {
+                            this.content += 'Hello,World!';
+                            box.innerText = this.content;
+                        }, 1000);
+                    },
+                    false);
+
+            },
+            stop: function () {
+                // 在此补充代码
+                stopBtn.addEventListener(
+                    'click',
+                    () => {
+                        clearInterval(this.timer);
+                    },
+                    false);
+            },
+        }
+        // 在此补充代码
+        show.start();
+        show.stop();
+
+    </script>
+</body>
+
+</html>
