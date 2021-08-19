@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring_assignment</title>
+</head>
+
+<body>
+
+    <script>
+       const newEle =  function createElement( tagName='div', {className='default',content='default'} = {}){ //解构赋值和函数参数都有默认值
+                    let ele = document.createElement(tagName);
+                    ele.className = className;//通过解构赋值，就不需要通过类似options.className这样的打点调用，更加直观简约
+                    ele.innerText = content;
+                    document.body.appendChild(ele);
+        }
+        const ele1 = newEle();
+        const ele2 = newEle('span');
+        const ele3 = newEle(tagName='p');
+        const ele4 = newEle(tagName='h1',{className :'box1',content : '我是ele4'});
+        
+        // const student = function({name='defalut', age=0} = {}){
+        //     console.log(`my name is ${name}, and i'm ${age}years old`);
+        // }
+        // student();
+        // student({name:'xiaoshi',age:18});
+
+
+    </script>
+</body>
+
+</html>

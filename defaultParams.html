@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 324px;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 3px;
+            background: #f01414;
+            color: #fff;
+        }
+
+        #intro {
+            width: 300px;
+            min-height: 100px;
+            line-height: 20px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <button id='btn'>添加</button>
+        <div id="intro"></div>
+    </div>
+    <script>
+        /* 默认值参考设置
+          {
+                name: "大话西游之月光宝盒 ",
+                year: "2014",
+                director: "刘镇伟",
+                star: "周星驰 / 吴孟达 / 罗家英",
+                type: "喜剧 / 爱情 / 奇幻 / 古装",
+                introduction: "　孙悟空（周星驰）护送唐三藏（罗家英）去西天取经路上，与牛魔王合谋欲杀害唐三藏，并偷走了月光宝盒，此举使观音萌生将其铲除心思，经唐三藏请求，孙悟空被判五百年后重新投胎做人赎其罪孽...."
+            }
+        */
+        let defalutContents = {
+            name: "大话西游之月光宝盒 ",
+            year: "2014",
+            director: "刘镇伟",
+            star: "周星驰 / 吴孟达 / 罗家英",
+            type: "喜剧 / 爱情 / 奇幻 / 古装",
+            introduction: "　孙悟空（周星驰）护送唐三藏（罗家英）去西天取经路上，与牛魔王合谋欲杀害唐三藏，并偷走了月光宝盒，此举使观音萌生将其铲除心思，经唐三藏请求，孙悟空被判五百年后重新投胎做人赎其罪孽...."
+        }
+        let c = defalutContents;
+        let intro = document.getElementById('intro');
+        intro.innerHTML = `
+        <h2>电影: ${c.name}</h2>
+        <p>上映年份: ${c.year}</p>
+        <p>导演: ${c.director}</p>
+        <p>明星: ${c.star}</p>
+        <p>类型: ${c.type}</p>
+        <p>简介: ${c.introduction}</p>
+        `
+        btn.onclick = function () {
+            //假设有用户自定义输入内容
+            customContents = {
+                name: "功夫 ",
+                year: "2014",
+                director: "周星驰",
+                star: "周星驰 /黄圣依",
+                type: "喜剧 / 爱情 ",
+                introduction: "　巴拉巴拉巴拉...."
+            };
+            c = { ...defalutContents, ...customContents };//覆盖
+            intro.innerHTML = `
+        <h2>电影: ${c.name}</h2>
+        <p>上映年份: ${c.year}</p>
+        <p>导演: ${c.director}</p>
+        <p>明星: ${c.star}</p>
+        <p>类型: ${c.type}</p>
+        <p>简介: ${c.introduction}</p>
+        `
+        }
+    </script>
+</body>
+
+</html>
