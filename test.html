@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // reduce
@@ -33,8 +35,146 @@
         //     let min = Math.min(...ls);
         //     console.log(`min = ${min}`);
 
+        /* 集合 */
+        // let s = new Set();
+        // s.add(1).add(2).add(3);
+        // const obj = {};
+        // s.forEach((value,key,set) => {console.log(this);},obj);
+
+        //  let s = new Set();
+        // s.add(1).add(2).add(3);
+        // s.delete(2);
+        // console.log(s.size);
+        // s.forEach(value => console.log(value));
+
+        // let str = "study hard and make and progress every day study"
+        /* 方法一 */
+        // let arr = [...str];
+        // let s = new Set(arr);
+        // console.log(s);
+        /* 方法二 */
+        // let  arr = str.split('');
+        // let _arr = [...new Set(arr)];
+        // console.log(_arr.join(''));
+
+        /*         1、创建Map实例
+                2、使用set方法，向实例中添加name、sex、age
+                3、使用delete方法，删除实例中的age
+                4、使用has方法，判断某个值是否为Map实例的成员 */
+        // let m = new Map();
+        // m.set('name','Bob').set('age', 18).set('sex', 'male');
+        // m.delete('age');
+        // m.has('age');
+        // m.forEach((value,key) => console.log(value,key), document);
+
+        /*         1、创建一个Map实例，并把二维数组[['a', 111], ['b', 222]]作为参数，传入该实例中
+                    2、再创建一个Map实例，把第一个Map实例作为参数，传入该实例中
+                    3、在第二个Map实例中，新添加一个' 键为“c” 、值为333的成员，并在控制台中输出第二个Map实例 */
+        // let m1 = new Map(
+        //    [ ['a',111],
+        //     ['b', 222]]);
+        // let m2 = new Map(m1);
+        // m2.set('c', 333);
+        // m2.forEach((value,key) => console.log(value,key));
+
+        /* 四种数组去重的方法 */
+
+        // const arr = [1, 1, "1", 17, true, true, false, false, "true", "a", {}, {}];
+
+        // // 数组循环去重
+        // let arr1 = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr1.indexOf(arr[i]) == -1) {
+        //         arr1.push(arr[i]);
+        //     }
+        // }
+        // console.log(arr1);
+
+        // // reduce去重
+        // let arr2 = arr.reduce((prev, next) => {
+        //     prev.indexOf(next) == -1 && prev.push(next);
+        //     return prev;
+        // }, []);
+        // console.log(arr2);
+
+        // //Set去重
+        // const arr3 = [...new Set(arr)];
+        // console.log(arr3);
+
+        // //Map去重
+        // let m = new Map();
+        // let arr4 = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     m.set(arr[i], arr[i]);
+        // }
+        // m.forEach((value, key) => {
+        //     arr4.push(value);
+        // });
+        // console.log(arr4);
+
+        // const arr = ["i", "m", "o", "o", "c"]
+        // const newArr = [];
+        // let flag = true;
+        // for (let value of arr) {
+        //     if (flag && value == 'o') {
+        //         value = value.toUpperCase();
+        //         flag = false;
+        //         newArr.push(value);
+        //     } else {
+        //         newArr.push(value);
+        //     }
+        // }
+        // console.log(newArr);
+
+        /*     将代码中提供的obj对象改写成for…of可遍历的对象。
+                （1）给对象obj添加Symbol.iterator方法。
+                （2）Symbol.iterator方法内部定义变量表示遍历次数，并返回一个对象。
+                （3）返回的对象中设置next方法。
+                （4）在next方法中通过判断设置对应的返回值。 */
+        const obj = {
+            "0": "xm",
+            "sex": "male",
+            length: 2
+        }
+
+        obj[Symbol.iterator] = () => {
+            let index = 0;
+            return {
+                next() {
+                    index++;
+                    if (index == 1) {
+                        return {
+                            value: obj['0'],
+                            done: false
+                        }
+                    } else if (index == 2) {
+                        return {
+                            value: obj.sex,
+                            done: false
+                        }
+                    } else if (index == 3) {
+                        return {
+                            value: obj.length,
+                            done: false
+                        }
+                    } else {
+                        return {
+                            done: true
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        for (let value of obj){
+            console.log(value);
+        }
+
 
 
     </script>
 </body>
+
 </html>
