@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise & Class </title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: all 0.5s;
+        }
+
+        #img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <img src="https://img0.baidu.com/it/u=2853321465,1161336720&fm=26&fmt=auto&gp=0.jpg" alt="" id="img">
+    <script>
+        const move = (el, { x = 0, y = 0 } = {}, end = () => { }) => {
+            el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+            el.addEventListener(
+                'transitionend',
+                () => {
+                    end();
+                },
+                false
+            );
+        };
+        /*① 使用嵌套的回调函数使盒子移动 */
+        // const boxEl = document.getElementById('box');
+        // document.addEventListener(
+        //     'click',
+        //     () => {
+        //         move(boxEl, {x:150, y:0}, () => {
+        //             move(boxEl, {x:150, y:150}, () => {
+        //                 move(boxEl, {x:0, y:150}, () => {
+        //                     move(boxEl, {x:0, y:0}, () => {
+        //                         console.log('结束');
+        //                     })
+        //                 })
+        //             })
+        //         })
+        //     },
+        //     false
+        // );
+
+        /* ②使用Promise可以避免“callback hell”，代码可维护性更好 */
+        // const boxEl = document.getElementById('box');
+
+        // const movePromise = (el, point) => {
+        //     return new Promise(resolve => {
+        //         move(el, point, () => {
+        //             resolve();
+        //         });
+        //     });
+        // };
+
+        // document.addEventListener(
+        //     'click',
+        //     () => {
+        //         movePromise(boxEl, { x: 150 })
+        //             .then(() => {
+        //                 return movePromise(boxEl, { x: 0, y: 0 });
+        //             })
+        //             .then(() => {
+        //                 return movePromise(boxEl, { x: 150, y: 150 });
+        //             })
+        //             .then(() => {
+        //                 return movePromise(boxEl, { y: 150 });
+        //             });
+        //     },
+        //     false
+        // );
+        /* ==========定义一个使用Promise异步加载图片的函数===========*/
+        const img_url = 'https://tse3-mm.cn.bing.net/th/id/OIP-C.VJeaz5HGiGGXgSl9xE2VLwAAAA?w=170&h=180&c=7&o=5&pid=1.7';
+        const loadImgAsync = (url) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+
+                img.onload = () => {
+                    resolve(img);
+                }
+
+                img.onerror = () => {
+                    reject(new Error(`Could not load image at ${url}`));
+                }
+                img.src = url;//resole(),reject()交代清楚了还可以继续写逻辑
+            })
+        }
+        const imgDOM = document.getElementById('img');
+        /* 调用loadImgAsync函数，加载图片，并在2秒后更新 */
+        loadImgAsync(img_url)
+            .then(
+                (img) => {
+                    setTimeout(() => {
+                        imgDOM.src = img.src;
+                    }, 2000);
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log(error);
+                }
+            )
+
+
+    </script>
+</body>
+
+</html>
