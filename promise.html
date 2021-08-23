@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Description' content="笔记 - 关于ES6中的Promise和Class的使用和注意事项">
     <title>Promise & Class </title>
     <style>
         #box {
@@ -24,7 +25,10 @@
     <div id="box"></div>
     <img src="https://img0.baidu.com/it/u=2853321465,1161336720&fm=26&fmt=auto&gp=0.jpg" alt="" id="img">
     <script>
-        const move = (el, { x = 0, y = 0 } = {}, end = () => { }) => {
+        const move = (el, {
+            x = 0,
+            y = 0
+        } = {}, end = () => {}) => {
             el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
             el.addEventListener(
@@ -81,38 +85,130 @@
         //     false
         // );
         /* ==========定义一个使用Promise异步加载图片的函数===========*/
-        const img_url = 'https://tse3-mm.cn.bing.net/th/id/OIP-C.VJeaz5HGiGGXgSl9xE2VLwAAAA?w=170&h=180&c=7&o=5&pid=1.7';
-        const loadImgAsync = (url) => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
+        // const img_url = 'https://tse3-mm.cn.bing.net/th/id/OIP-C.VJeaz5HGiGGXgSl9xE2VLwAAAA?w=170&h=180&c=7&o=5&pid=1.7';
+        // const loadImgAsync = (url) => {
+        //     return new Promise((resolve, reject) => {
+        //         const img = new Image();
 
-                img.onload = () => {
-                    resolve(img);
-                }
+        //         img.onload = () => {
+        //             return resolve(img);
+        //         }
 
-                img.onerror = () => {
-                    reject(new Error(`Could not load image at ${url}`));
-                }
-                img.src = url;//resole(),reject()交代清楚了还可以继续写逻辑
-            })
+        //         img.onerror = () => {
+        //             return reject(new Error(`Could not load image at ${url}`));
+        //         }
+        //         img.src = url;//resole(),reject()交代清楚了还可以继续写逻辑
+        //     })
+        // }
+        // const imgDOM = document.getElementById('img');
+        // /* 调用loadImgAsync函数，加载图片，并在2秒后更新 */
+        // loadImgAsync(img_url)
+        //     .then(
+        //         (img) => {
+        //             setTimeout(() => {
+        //                 imgDOM.src = img.src;
+        //             }, 2000);
+        //         }
+        //     )
+        //     .catch(
+        //         (error) => {
+        //             console.log(error);
+        //         }
+        //     )
+        /*         async / await 语法
+                    async 函数返回一个Promise对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。
+                    三大注意事项：
+                    ①await后面跟着的是一个Promise对象，会等待Promise返回结果后，再继续执行后面的代码；
+                    ②await后面跟着的是一个数值或者字符串等数据类型的值，则直接返回该值；
+                    ③await后面跟着的是一个定时器，不会等待定时器里的代码执行完，而是直接执行后面的代码，然后再执行定时器中的代码；
+                    最后，async/await方式虽然使得异步操作变得更加方便和易读，但它还是基于Promise的。
+                    
+                    */
+        // const timeout = time => {
+        //     return new Promise(function (resolve, reject) {
+        //         setTimeout(() => {
+        //             return resolve();
+        //         }, time);
+        //     })
+        // };
+
+        // const start = async () => {
+        //     console.log('start');
+        //     await timeout(3000); //跟着一个Promise对象，会等它返回再执行后面的代码
+        //     timeout(2000).then(() => console.log('hello'));
+        //     console.log('end');
+        //     return 'imooc';
+        // }
+        // start().then((data) => {
+        //     console.log(data);
+        // })
+
+        /* Class */
+        /* super关键字有时能被当作函数来调用，有时又能当作对象来访问，实在让人糊涂，那么super具体代表什么要结合代码来看， 以及方法中的this指向谁，使用super时的注意事项。 
+        ①作为函数调用：代表父类的构造方法，只能用在子类的构造方法中，用在其他地方就会报错。此时内部的this指向子类的实例 */
+        // class Person {
+        //         constructor(name, sex) {
+        //             this.name = name;
+        //             this.sex = sex;
+        //             console.log(this);
+        //         }
+        //     }
+        //     class Programmer extends Person {
+        //         constructor(name, sex) {
+        //             super(name, sex); //在子类构造函数中super作为函数调用
+        //         }
+        //     }
+        //     new Person(); //this指向父类实例
+        //     new Programmer(); //this指向子类实例
+        /* ②.作为对象使用：
+            ⑴ 在构造方法或一般方法中使用：super代表父类的原型对象Person.prototype，所以定义在父类实例上方法或属性是无法通过super调用的，通过super调用父类的方法时，方法内部的this指向子类实例
+            ⑵ 在静态方法中使用：指向父类而不是父类的原型，通过super调用父类方法时，方法内部的this指向当前子类，而不是子类实例 */
+        class Person {
+            constructor(name, sex) {
+                this.name = name;
+                this.sex = sex;
+                // console.log(this);
+            }
+
+            // 定义在父类原型上的方法
+            speak() {
+                console.log('person speak');
+                // console.log(this);
+            }
+
+            // 静态方法，是Person类方法
+            static speak() {
+                console.log('static Person speak');
+            }
         }
-        const imgDOM = document.getElementById('img');
-        /* 调用loadImgAsync函数，加载图片，并在2秒后更新 */
-        loadImgAsync(img_url)
-            .then(
-                (img) => {
-                    setTimeout(() => {
-                        imgDOM.src = img.src;
-                    }, 2000);
-                }
-            )
-            .catch(
-                (error) => {
-                    console.log(error);
-                }
-            )
+        class Programmer extends Person {
+            constructor(name, sex) {
+                super(name, sex);
 
+                // console.log(super.name); //undefined
+                super.speak();
+            }
 
+            // hi() {
+            //     super();//x
+            // }
+
+            speak() {
+                // 父类原型上的speak方法
+                super.speak(); //子类的speak先调用一下父类的speak，即super.speak()，再添加自己独有的内容
+                console.log("Programmer speak");
+            }
+
+            // 静态方法
+            // 指向父类，而不是父类原型对象
+            static speak() {
+                // 父类方法
+                super.speak(); //Person.speak();
+                console.log("Programmer speak");
+            }
+        }
+        var p = new Person(); //this指向父类实例
+        var c = new Programmer(); //this指向子类实例
     </script>
 </body>
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            name = 'nobody'
+            age = 0
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            speak() {
+                console.log('run');
+            }
+            static speak() {
+                console.log('static speak');
+            }
+
+            static sex = 'male'
+        }
+        Person.prototype.speak = () => console.log('prototype speak') //与16行speak()方法的定义是等价的
+        const p = new Person('Bob', 19);
+        const p2 = new Person();
+    </script>
+</body>
+
+</html>
