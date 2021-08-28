@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装cookie模块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 600px;
+            height: 400px;
+
+            margin: 0 auto;
+            padding: 30px;
+
+        }
+
+        form {
+            font-size: 30px;
+        }
+
+        input[type='text'] {
+            height: 20px;
+            font-size: 20px;
+        }
+
+        input[type='button'] {
+            width: 160px;
+            height: 30px;
+        }
+
+        input[type='button']:hover {
+            background-color: #ff9900;
+            transition: all .3s linear 0s;
+        }
+    </style>
+    <script type='module'>
+        // import { set, get, remove} from "./cookie.js";
+        // // set
+        // set('username', 'xiaoshi');
+        // set('age',18,{maxAge: 7 * 24 * 3600});
+        // set('foo', 'bar');
+        // // get 
+        // console.log(get('username'));
+        // console.log(get('age'));
+        // console.log(get('foo'));
+        // // remove 
+        // remove('foo');
+        // console.log(get('foo'));
+        import { set, get, remove } from './cookie.js';
+        const user = document.getElementById('user');
+        const btnLogin = document.getElementById('login');
+        const btnDelete = document.getElementById('delete');
+        // user.addEventListener(
+        //     'change',
+        //     (e) =>{
+        //         console.log(e);
+        //     } ,
+        //     false
+        // )
+        //查找cookie有没有username，如果有就直接填入输入框
+        const username = get('username');
+        username?user.value=username:'';
+
+        btnLogin.addEventListener(
+            'click',
+            ()=>{ 
+                set( 'username', user.value);
+                window.location = './cookie.html';
+             },
+            false
+        )
+        btnDelete.addEventListener(
+            'click',
+            () => {
+                remove('username');
+                window.location = './cookie.html';
+            },
+            false
+        )
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <form action="">
+            <label for="user">username
+                <input type="text" id='user' >
+            </label><br>
+            <input type="button" value='login' id='login'>
+            <input type="button" value='delete' id='delete'>
+        </form>
+    </div>
+</body>
+
+</html>

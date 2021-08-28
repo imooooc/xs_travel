@@ -97,7 +97,7 @@
         //         img.onerror = () => {
         //             return reject(new Error(`Could not load image at ${url}`));
         //         }
-        //         img.src = url;//resole(),reject()交代清楚了还可以继续写逻辑
+        //         img.src = url;//resole(),reject()交代清楚继续写逻辑
         //     })
         // }
         // const imgDOM = document.getElementById('img');
@@ -127,7 +127,7 @@
         // const timeout = time => {
         //     return new Promise(function (resolve, reject) {
         //         setTimeout(() => {
-        //             return resolve();
+        //             return resolve('ok!');
         //         }, time);
         //     })
         // };
@@ -135,7 +135,7 @@
         // const start = async () => {
         //     console.log('start');
         //     await timeout(3000); //跟着一个Promise对象，会等它返回再执行后面的代码
-        //     timeout(2000).then(() => console.log('hello'));
+        //     timeout(2000).then((data) => console.log(data));
         //     console.log('end');
         //     return 'imooc';
         // }
