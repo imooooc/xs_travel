@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script>
+        // Ajax Asy.. Javascript And XML
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+        const xhr = new XMLHttpRequest();
+        // 事件监听
+        xhr.onreadystatechange = () => {
+            //readystate有0~4五个状态
+            if (xhr.readyState !== 4) return;
+            // 判断HTTP code
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                console.log(xhr.responseText);
+            }
+        }
+        //xhr.open(method url true)
+        xhr.open('post', url, true);
+        xhr.send(`hello,${encodeURIComponent('世界')}`);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
